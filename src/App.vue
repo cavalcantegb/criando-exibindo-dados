@@ -2,6 +2,15 @@
   <div id="app">
     <h1 v-once v-text="titulo"></h1>
     <h2>{{subtitulo}}</h2>
+    <div v-if="tarefas.length==0">
+      Nao ha tarefas
+    </div>
+    <div v-if="tarefas.length>0">
+      Existem {{tarefas.length}} tarefas
+      <ul>
+        <li v-for="tarefa in tarefas"> {{ tarefa }} </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -16,7 +25,10 @@ export default {
     }
   },
   mounted() {
-    setTimeout( () => this.titulo = "Novo titulo", 2000 )
+    setTimeout( () => { 
+      this.titulo = "Novo titulo",
+      this.tarefas = ['tarefa 1', 'tarefa 2', 'tarefa 3', 'tarefa 4']
+    }, 3000)
   }
 }
 </script>
