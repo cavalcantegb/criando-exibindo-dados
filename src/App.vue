@@ -2,6 +2,7 @@
   <div id="app">
     <h1 v-once v-text="titulo"></h1>
     <h2>{{subtitulo}}</h2>
+    <input v-model="subtitulos" type="text" placeholder="Descrição">
     <div v-if="tarefas.length==0">
       Nao ha tarefas
     </div>
