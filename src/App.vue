@@ -2,7 +2,12 @@
   <div id="app">
     <h1 v-once v-text="titulo"></h1>
     <h2>{{subtitulo}}</h2>
-    <input v-model="subtitulos" type="text" placeholder="Descrição">
+    <input v-model="subtitulo" type="text" placeholder="Descrição">
+    <br>
+    <small v-text="nome"></small>
+    <br>
+    <input v-model="nome" type="text" placeholder="Nome">
+    
     <div v-if="tarefas.length==0">
       Nao ha tarefas
     </div>
@@ -22,14 +27,19 @@ export default {
     return {
       titulo: 'Listagem de tarefas',
       subtitulo: 'Defina uma descricao',
-      tarefas: []
+      tarefas: [],
+      nome: "Mane Garrincha",
+      counter: 1
     }
   },
   mounted() {
     setTimeout( () => { 
       this.titulo = "Novo titulo",
       this.tarefas = ['tarefa 1', 'tarefa 2', 'tarefa 3', 'tarefa 4']
-    }, 3000)
+    }, 3000),
+    setTimeout( () => {
+      this.nome = "Mineirao"
+    }, 4000)
   }
 }
 </script>
